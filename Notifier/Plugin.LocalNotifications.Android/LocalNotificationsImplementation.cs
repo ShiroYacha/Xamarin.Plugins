@@ -35,13 +35,13 @@ namespace Plugin.LocalNotifications
 
                 // compose inbox lines
                 var style = new NotificationCompat.InboxStyle();
-                if (lines.Count > 1)
+                if (lines.Count >= 1)
                 {
                     // set last line as summary
                     style.SetSummaryText(lines.Last());
 
                     // add other lines if exists
-                    if(lines.Count > 2)
+                    if(lines.Count >= 2)
                     {
                         foreach (var line in lines.Take(lines.Count - 1))
                         {
