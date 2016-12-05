@@ -21,8 +21,14 @@ namespace AndroidApp
 
             testNotifierButton.Click += delegate
             {
-                CrossLocalNotifications.Current.Show("Test", "This is a test notification");
-                CrossLocalNotifications.Current.Show("Test", "This is a test notification from the future.", 1, DateTime.Now.AddMinutes(1));
+                CrossLocalNotifications.Current.Show("Test", "This is a test notification",0);
+                CrossLocalNotifications.Current.Show("Test", "This is a test notification" + System.Environment.NewLine
+                                                            + "with a summary",1);
+                CrossLocalNotifications.Current.Show("Test", "This is a test notification"+ System.Environment.NewLine
+                                                            + "that has multiple lines"+ System.Environment.NewLine
+                                                            + "and so on ..." + System.Environment.NewLine
+                                                            + "with a summary",2);
+                CrossLocalNotifications.Current.Show("Test", "This is a test notification from the future.", 3, DateTime.Now.AddSeconds(10));
             };
 
             var testAppLookupButton = FindViewById<Button>(Resource.Id.TestAppLookupButton);
